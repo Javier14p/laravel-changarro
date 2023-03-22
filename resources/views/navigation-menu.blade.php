@@ -1,13 +1,17 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 bg-zinc-100">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
-                    </a>
+                    <div class="inline-flex">
+                        <a class="_o6689fn" href="/"
+                            ><div class="hidden md:block">
+                                <img src="/images/LuisVilleton2.png" alt="" width="10%" class="rounded-full block h-11 w-auto" style="display: block">
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Navigation Links -->
@@ -15,6 +19,45 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('products.index')">
+                        {{ __('Products') }}
+                    </x-jet-nav-link>
+                </div>
+            </div>
+
+            <div class="hidden sm:block flex-shrink flex-grow-0 justify-start px-2 pt-4 pr-20">
+                <div class="inline-block">
+                    <div class="inline-flex items-center max-w-full">
+                        <button class="flex items-center flex-grow-0 flex-shrink pl-2 relative w-60 border rounded-full px-1  py-1" type="button">
+                            <div class="block flex-grow flex-shrink overflow-hidden">Busca tus choninos</div>
+                            <div class="flex items-center justify-center relative  h-8 w-8 rounded-full">
+                                <svg
+                                    viewBox="0 0 32 32"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                    role="presentation"
+                                    focusable="false"
+                                    style="
+                                        display: block;
+                                        fill: none;
+                                        height: 12px;
+                                        width: 12px;
+                                        stroke: currentcolor;
+                                        stroke-width: 5.33333;
+                                        overflow: visible;
+                                    "
+                                >
+                                    <g fill="none">
+                                        <path
+                                            d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"
+                                        ></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
                 </div>
             </div>
 

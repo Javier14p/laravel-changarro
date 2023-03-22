@@ -50,6 +50,14 @@ class ProductController extends Controller
         $product->name = $request->input('name');
         $product->description = $request->input('description');
         $product->price = $request->input('price');
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $filename);
+            $product->image_path = 'images/' . $filename;
+        }
+
         $product->save();
 
         $messageBody = json_encode([
@@ -100,6 +108,16 @@ class ProductController extends Controller
         $product->name = $request->input('name');
         $product->price = $request->input('price');
         $product->description = $request->input('description');
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $filename);
+            $product->image_path = 'images/' . $filename;
+        } else {
+            unset($product['image']);
+        }
+
         $product->save();
 
         $message = json_encode([
